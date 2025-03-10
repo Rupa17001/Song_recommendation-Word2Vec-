@@ -10,7 +10,7 @@ song_id = st.text_input("Enter a Song ID:")
 if st.button("Get Recommendations"):
     if song_id:
         # Fetch recommendations from FastAPI
-        response = requests.get(f"http://127.0.0.1:8000/recommend/{song_id}")
+        response = requests.get(f"https://song-recommendation-word2vec.onrender.com/recommend/{song_id}")
         
         if response.status_code == 200:
             data = response.json()
