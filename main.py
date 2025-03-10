@@ -3,7 +3,7 @@ from gensim.models import Word2Vec
 import pandas as pd
 import numpy as np
 import uvicorn
-
+import os
 app = FastAPI()
 
 # Load the model and dataset
@@ -27,4 +27,5 @@ def recommend(song_id: int):
         return {"error": "Song ID not found in the model"}
     
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    port = int(os.getenv("PORT", 8000))  
+    uvicorn.run(app, host="0.0.0.0", port=port)
