@@ -14,6 +14,7 @@ songs_df = pd.read_csv(r"C:\Users\Rupa Bisht\Desktop\Hands-on LLM\songs.csv")  #
 def home():
     return {"message": "Music Recommendation API"}
 
+
 @app.get("/recommend/{song_id}")
 def recommend(song_id: int):
     try:
